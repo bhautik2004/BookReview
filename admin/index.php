@@ -51,7 +51,6 @@ if (isset($_POST['login'])) {
         </div>
         <button type="submit" name="login">Login</button>
     </form>
-    <p>Don't have an account? <a href="registration.php">Register here</a></p>
 </section>
 
 </body>
