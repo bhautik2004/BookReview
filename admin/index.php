@@ -11,15 +11,12 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    $stmt = $con->prepare("SELECT * FROM admin WHERE username=? AND password=?");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $res = $stmt->get_result();
+    $sql = "SELECT * FROM admin WHERE username = '$username' AND password= '$password'";
+    $res = $con->query($sql);
 
     if ($res->num_rows > 0) {
         $_SESSION['admin'] = $username;
         header("Location: admin_action.php");
-        exit();
     } else {
         $error = "Invalid Username or Password";
     }
@@ -51,7 +48,7 @@ if (isset($_POST['login'])) {
         </div>
         <button type="submit" name="login">Login</button>
     </form>
-    <p>Don't have an account? <a href="registration.php">Register here</a></p>
+   
 </section>
 
 </body>

@@ -2,7 +2,7 @@
 include 'db.php';
 session_start();
 
-if (!isset($_SESSION['admin'])) {
+if (!isset($_SESSION['user_name'])) {
     header("Location: login.php");
     exit();
 }
@@ -160,10 +160,10 @@ if ($result_user->num_rows > 0) {
     <h1>Add Review</h1>
     <?php if ($book): ?>
     <div class="book-details">
-        <img src="images/<?php echo htmlspecialchars($book['image']); ?>" alt="<?php echo htmlspecialchars($book['title']); ?>">
-        <h3><?php echo htmlspecialchars($book['title']); ?></h3>
-        <p>by <?php echo htmlspecialchars($book['author']); ?></p>
-        <p>Genre: <?php echo htmlspecialchars($book['genre']); ?></p>
+        <img src="images/<?php echo $book['image']; ?>" alt="<?php echo $book['title']; ?>">
+        <h3><?php echo $book['title']; ?></h3>
+        <p>by <?php echo $book['author']; ?></p>
+        <p>Genre: <?php echo $book['genre']; ?></p>
     </div>
     <form method="POST">
         <div>

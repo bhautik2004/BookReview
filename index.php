@@ -42,9 +42,9 @@ $result = mysqli_query($con, $sql);
         <?php if (mysqli_num_rows($result) > 0): ?>
             <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <div class="book">
-                    <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
-                    <h3><?php echo htmlspecialchars($row['title']); ?></h3>
-                    <p>by <?php echo htmlspecialchars($row['author']); ?></p>
+                    <img src="images/<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>">
+                    <h3><?php echo $row['title']; ?></h3>
+                    <p>by <?php echo $row['author']; ?></p>
                     <div class="book-btn">
                         <a href="book_review.php?id=<?php echo $row['book_id']; ?>" class="btn">View Review</a>
                         <?php if ($isLoggedIn): ?>

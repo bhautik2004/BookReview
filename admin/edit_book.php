@@ -114,20 +114,20 @@ if (isset($_POST['update'])) {
     <form method="POST" enctype="multipart/form-data">
         <div>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($book['title']); ?>" required>
+            <input type="text" id="title" name="title" value="<?php echo $book['title']; ?>" required>
         </div>
         <div>
             <label for="author">Author:</label>
-            <input type="text" id="author" name="author" value="<?php echo htmlspecialchars($book['author']); ?>" required>
+            <input type="text" id="author" name="author" value="<?php echo $book['author']; ?>" required>
         </div>
         <div>
             <label for="genre">Genre:</label>
-            <input type="text" id="genre" name="genre" value="<?php echo htmlspecialchars($book['genre']); ?>" required>
+            <input type="text" id="genre" name="genre" value="<?php echo $book['genre']; ?>" required>
         </div>
         <div>
             <label for="image">Image:</label>
             <input type="file" id="image" name="image">
-            <p>Current Image: <img src="../images/<?php echo htmlspecialchars($book['image']); ?>" alt="<?php echo htmlspecialchars($book['title']); ?>" style="max-width: 100px; display: block; margin-top: 5px;"></p>
+            <p>Current Image: <img src="../images/<?php echo $book['image']; ?>" alt="<?php echo $book['title']; ?>" style="max-width: 100px; display: block; margin-top: 5px;"></p>
         </div>
         <button type="submit" name="update">Update Book</button>
     </form>

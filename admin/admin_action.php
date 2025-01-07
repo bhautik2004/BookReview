@@ -2,7 +2,6 @@
 include '../db.php';
 session_start();
 
-// Check if the admin is logged in
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
     exit();
@@ -137,10 +136,10 @@ if (isset($_POST['logout'])) {
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <tr>
                         <td><?php echo $row['book_id']; ?></td>
-                        <td><?php echo htmlspecialchars($row['title']); ?></td>
-                        <td><?php echo htmlspecialchars($row['author']); ?></td>
-                        <td><?php echo htmlspecialchars($row['genre']); ?></td>
-                        <td><img src="../images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>"></td>
+                        <td><?php echo $row['title']; ?></td>
+                        <td><?php echo $row['author']; ?></td>
+                        <td><?php echo $row['genre']; ?></td>
+                        <td><img src="../images/<?php echo $row['image']; ?>" alt="<?php echo htmlspecialchars($row['title']); ?>"></td>
                         <td>
                             <a href="edit_book.php?id=<?php echo $row['book_id']; ?>" class="btn">Edit</a>
                             <a href="?delete_id=<?php echo $row['book_id']; ?>" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
